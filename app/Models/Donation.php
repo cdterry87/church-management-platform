@@ -9,4 +9,19 @@ class Donation extends Model
     protected $table = 'donations';
 
     protected $guarded = [];
+
+    protected $casts = [
+        'amount' => 'decimal:2',
+        'donated_at' => 'datetime',
+    ];
+
+    public function church()
+    {
+        return $this->belongsTo(Church::class);
+    }
+
+    public function person()
+    {
+        return $this->belongsTo(Person::class);
+    }
 }

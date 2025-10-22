@@ -45,4 +45,25 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function church()
+    {
+        return $this->belongsTo(Church::class);
+    }
+
+    public function person()
+    {
+        return $this->hasOne(Person::class);
+    }
+
+    // Convenience
+    public function isAdmin(): bool
+    {
+        return $this->role === 'admin';
+    }
+
+    public function isStaff(): bool
+    {
+        return $this->role === 'staff' || $this->isAdmin();
+    }
 }

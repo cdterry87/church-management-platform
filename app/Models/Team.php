@@ -9,4 +9,14 @@ class Team extends Model
     protected $table = 'teams';
 
     protected $guarded = [];
+
+    public function church()
+    {
+        return $this->belongsTo(Church::class);
+    }
+
+    public function volunteers()
+    {
+        return $this->hasMany(Volunteer::class, 'team_id');
+    }
 }
