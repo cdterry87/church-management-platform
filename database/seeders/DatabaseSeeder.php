@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             'church_id' => $church->id,
             'name' => 'Admin User',
             'email' => 'admin@church.test',
+            'password' => bcrypt('password'),
         ]);
 
         // Create people

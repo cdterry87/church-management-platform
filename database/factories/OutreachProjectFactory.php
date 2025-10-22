@@ -20,9 +20,10 @@ class OutreachProjectFactory extends Factory
             'church_id' => \App\Models\Church::factory(),
             'name' => $this->faker->sentence(4),
             'description' => $this->faker->paragraph(),
-            'start_date' => $this->faker->dateTimeBetween('now', '+6 months'),
-            'end_date' => $this->faker->dateTimeBetween('+6 months', '+1 year'),
-            'budget' => $this->faker->randomFloat(2, 1000, 10000),
+            'start_at' => $this->faker->dateTimeBetween('now', '+6 months'),
+            'end_at' => $this->faker->dateTimeBetween('+6 months', '+1 year'),
+            'goal' => $this->faker->randomFloat(2, 1000, 10000),
+            'location' => $this->faker->address(),
         ];
     }
 }

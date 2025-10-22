@@ -2,10 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Event extends Model
 {
+    use HasFactory;
+
     protected $table = 'events';
 
     protected $guarded = [];
@@ -21,12 +24,12 @@ class Event extends Model
         return $this->belongsTo(Church::class);
     }
 
-    public function attendance()
+    public function attendees()
     {
-        return $this->hasMany(EventAttendance::class);
+        return $this->hasMany(EventAttendee::class);
     }
 
-    public function eventVolunteers()
+    public function volunteers()
     {
         return $this->hasMany(EventVolunteer::class);
     }

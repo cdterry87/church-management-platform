@@ -17,10 +17,11 @@ class VolunteerFactory extends Factory
     public function definition(): array
     {
         return [
+            'church_id' => \App\Models\Church::factory(),
             'person_id' => \App\Models\Person::factory(),
             'team_id' => \App\Models\Team::factory(),
             'role' => $this->faker->jobTitle(),
-            'joined_at' => $this->faker->dateTimeBetween('-1 years', 'now'),
+            'active' => $this->faker->boolean(),
         ];
     }
 }

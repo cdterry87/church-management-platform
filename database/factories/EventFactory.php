@@ -20,8 +20,12 @@ class EventFactory extends Factory
             'church_id' => \App\Models\Church::factory(),
             'name' => $this->faker->sentence(3),
             'description' => $this->faker->paragraph(),
-            'event_date' => $this->faker->dateTimeBetween('now', '+1 year'),
+            'start_at' => $this->faker->dateTimeBetween('+1 days', '+1 month'),
+            'end_at' => $this->faker->dateTimeBetween('+1 month', '+2 months'),
             'location' => $this->faker->address(),
+            'type' => $this->faker->randomElement(['service', 'meeting', 'outreach', 'other']),
+            'is_recurring' => $this->faker->boolean(20),
+
         ];
     }
 }
