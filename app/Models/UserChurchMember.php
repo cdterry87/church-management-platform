@@ -3,21 +3,21 @@
 namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Database\Eloquent\SoftDeletes;
-// use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
+class UserChurchMember extends Authenticatable
 {
-    use Notifiable, SoftDeletes;
-    // use HasRoles;
+    use Notifiable;
+
+    protected $guard = 'church-member';
+    protected $table = 'users_church_members';
 
     protected $fillable = [
+        'church_id',
         'name',
         'email',
         'password',
-        'church_id',
-        'type'
+        'photo_path'
     ];
 
     protected $hidden = ['password', 'remember_token'];

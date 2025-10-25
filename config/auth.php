@@ -14,8 +14,8 @@ return [
     */
 
     'defaults' => [
-        'guard' => env('AUTH_GUARD', 'web'),
-        'passwords' => env('AUTH_PASSWORD_BROKER', 'users'),
+        'guard' => env('AUTH_GUARD', 'church-member'),
+        'passwords' => env('AUTH_PASSWORD_BROKER', 'users_church_members'),
     ],
 
     /*
@@ -36,9 +36,21 @@ return [
     */
 
     'guards' => [
-        'web' => [
+        'admin' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'admins',
+        ],
+        'church-manager' => [
+            'driver' => 'session',
+            'provider' => 'church-managers',
+        ],
+        'church-member' => [
+            'driver' => 'session',
+            'provider' => 'church-members',
+        ],
+        'team-member' => [
+            'driver' => 'session',
+            'provider' => 'team-members',
         ],
     ],
 
@@ -60,15 +72,22 @@ return [
     */
 
     'providers' => [
-        'users' => [
+        'admins' => [
             'driver' => 'eloquent',
-            'model' => env('AUTH_MODEL', App\Models\User::class),
+            'model' => env('AUTH_MODEL', App\Models\UserAdmin::class),
         ],
-
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'church-managers' => [
+            'driver' => 'eloquent',
+            'model' => env('AUTH_MODEL', App\Models\UserChurchManager::class),
+        ],
+        'church-members' => [
+            'driver' => 'eloquent',
+            'model' => env('AUTH_MODEL', App\Models\UserChurchMember::class),
+        ],
+        'team-members' => [
+            'driver' => 'eloquent',
+            'model' => env('AUTH_MODEL', App\Models\UserTeamMember::class),
+        ],
     ],
 
     /*
@@ -91,8 +110,26 @@ return [
     */
 
     'passwords' => [
-        'users' => [
-            'provider' => 'users',
+        'admins' => [
+            'provider' => 'admins',
+            'table' => env('AUTH_PASSWORD_RESET_TOKEN_TABLE', 'password_reset_tokens'),
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'church-managers' => [
+            'provider' => 'church-managers',
+            'table' => env('AUTH_PASSWORD_RESET_TOKEN_TABLE', 'password_reset_tokens'),
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'church-members' => [
+            'provider' => 'church-members',
+            'table' => env('AUTH_PASSWORD_RESET_TOKEN_TABLE', 'password_reset_tokens'),
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'team-members' => [
+            'provider' => 'team-members',
             'table' => env('AUTH_PASSWORD_RESET_TOKEN_TABLE', 'password_reset_tokens'),
             'expire' => 60,
             'throttle' => 60,
