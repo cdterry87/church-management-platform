@@ -9,7 +9,6 @@ return new class extends Migration {
     {
         Schema::create('users_church_managers', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('church_id')->nullable()->constrained()->nullOnDelete();
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();

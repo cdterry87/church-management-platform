@@ -12,13 +12,9 @@ class ChurchFactory extends Factory
         $name = $this->faker->company . ' Church';
         return [
             'name' => $name,
-            'slug' => Str::slug($name),
-            'address' => $this->faker->address(),
-            'city' => $this->faker->city(),
-            'state' => $this->faker->stateAbbr(),
-            'zip' => $this->faker->postcode(),
-            'phone' => $this->faker->phoneNumber(),
-            'timezone' => 'America/New_York',
+            'uuid' => Str::uuid(),
+            'description' => $this->faker->paragraph,
+            'logo_path' => null,
         ];
     }
 }

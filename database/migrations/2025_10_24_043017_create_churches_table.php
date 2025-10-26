@@ -9,8 +9,8 @@ return new class extends Migration {
     {
         Schema::create('churches', function (Blueprint $table) {
             $table->id();
+            $table->uuid('uuid')->unique();
             $table->string('name');
-            $table->string('denomination')->nullable();
             $table->text('description')->nullable();
             $table->string('logo_path')->nullable();
             $table->timestamps();
