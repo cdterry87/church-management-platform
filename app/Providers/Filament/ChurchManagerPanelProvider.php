@@ -24,7 +24,7 @@ class ChurchManagerPanelProvider extends PanelProvider
     {
         return $panel
             ->id('churchManager')
-            ->path('churchManager')
+            ->path('management')
             ->authGuard('church-manager')
             ->login()
             ->registration()

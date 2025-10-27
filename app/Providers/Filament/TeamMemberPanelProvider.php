@@ -24,7 +24,7 @@ class TeamMemberPanelProvider extends PanelProvider
     {
         return $panel
             ->id('teamMember')
-            ->path('teamMember')
+            ->path('teams')
             ->authGuard('team-member')
             ->login()
             ->registration()

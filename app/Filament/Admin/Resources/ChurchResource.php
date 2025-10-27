@@ -21,7 +21,7 @@ use App\Filament\Admin\Resources\ChurchResource\RelationManagers\ChurchManagersR
 class ChurchResource extends Resource
 {
     protected static ?string $model = Church::class;
-    protected static ?string $navigationIcon = 'heroicon-o-building-church';
+    protected static ?string $navigationIcon = 'heroicon-o-building-library';
     protected static ?string $navigationGroup = 'Church Management';
     protected static ?string $navigationLabel = 'Churches';
 

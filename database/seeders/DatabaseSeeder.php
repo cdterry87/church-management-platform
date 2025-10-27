@@ -38,7 +38,7 @@ class DatabaseSeeder extends Seeder
         // Create a church manager
         $managerUser = UserChurchManager::factory()->create([
             'name' => 'Manager User',
-            'email' => 'church_manager@example.com',
+            'email' => 'manager@example.com',
             'password' => bcrypt('password'),
         ]);
 
@@ -56,8 +56,8 @@ class DatabaseSeeder extends Seeder
 
         // Create a demo team member
         $teamMember = UserTeamMember::factory()->create([
-            'name' => 'Team Member',
-            'email' => 'team_member@example.com',
+            'name' => 'Volunteer',
+            'email' => 'volunteer@example.com',
             'password' => bcrypt('password'),
         ]);
 
@@ -70,7 +70,7 @@ class DatabaseSeeder extends Seeder
         // Create a user church member
         $churchMember = UserChurchMember::factory()->create([
             'name' => 'Church Member',
-            'email' => 'church_member@example.com',
+            'email' => 'member@example.com',
             'password' => bcrypt('password'),
         ]);
 

@@ -25,7 +25,7 @@ class ChurchMemberPanelProvider extends PanelProvider
         return $panel
             ->default()
             ->id('churchMember')
-            ->path('churchMember')
+            ->path('members')
             ->authGuard('church-member')
             ->login()
             ->registration()
